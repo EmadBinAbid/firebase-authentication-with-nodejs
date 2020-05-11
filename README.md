@@ -29,6 +29,6 @@ The request body expects `email` and `password` fields.
 You can find the dummy routes in `./routes/hello.js`. All routes are token-protected so you will need to provide the `authtoken` in the header.
 
 - `/hello-world` (GET call)
-- `/hello-user` (POST call)
+- `/hello-user` (GET call)
 
 Feel free to contribute to this boilerplate to make this more robust and efficient. For queries, please contact at `emad.bin.abid@gmail.com`.
