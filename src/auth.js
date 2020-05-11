@@ -40,23 +40,19 @@ exports.register = function (req, res) {
 }
 
 exports.login = function (req, res) {
+    var token;
     firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
         .then(function (userRecord) {
-            console.log('Successfully signed in:', userRecord.user.refreshToken);
             firebase.auth().currentUser.getIdToken(true)
                 .then(function (idToken) {
-                    console.log(`Successfully generated token: ${idToken}`);
                     res.json({
-                        message: "Succesfully signed in",
+                        message: `Successfully signed in`,
                         token: idToken
                     });
                 })
                 .catch(function (error) {
                     console.log('Error while generating token:', error);
                 });
-            res.json({
-                message: `Successfully signed in:, ${userRecord}`
-            });
         })
         .catch(function (error) {
             console.log('Error while signing in:', error);
