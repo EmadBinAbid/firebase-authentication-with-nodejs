@@ -1,3 +1,5 @@
+const helloSrc = require("../src/hello");
+
 exports.sayHelloWorld = function(app) {
     app.get('/hello-world', (req, res) => {
         res.json({
